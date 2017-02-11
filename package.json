@@ -1,4 +1,17 @@
-"scripts": {
-  "start": "node app.js"
-},
-"main": "app.js"
+{
+  "name": "Middleware",
+  "version": "0.1.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ArndBrugman/middleware"
+  },
+  "dependencies": {
+    "express": "4.2.x"
+  },
+  "author": "Arnd Brugman",
+  "license": "MIT"
+}
