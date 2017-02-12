@@ -1,11 +1,11 @@
 var express = require('express')
 var app = express()
-var port = parseInt(process.env.OPENSHIFT_NODEJS_PORT) || 8080;
+app.set('port', process.env.OPENSHIFT_NODEJS_PORT || process.env.PORT || 8080);
 
 app.get('/', function (req, res) {
-  res.send('Hello World via port ' + port)
+  res.send('Hello World via port ' + app.get('port'))
 })
 
 app.listen(port, function () {
-  console.log('Example app listening on port ' + port)
+  console.log('Example app listening on port ' + app.get('port'))
 })
