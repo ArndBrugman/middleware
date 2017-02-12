@@ -10,7 +10,8 @@
     "url": "https://github.com/ArndBrugman/middleware"
   },
   "dependencies": {
-    "express": "4.2.x"
+    "express": "4.2.x",
+    "xml2js": "0.4.17"
   },
   "author": "Arnd Brugman",
   "license": "MIT"
