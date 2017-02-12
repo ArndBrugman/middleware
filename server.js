@@ -10,7 +10,7 @@ app.get('/', function (req, res) {
   // http://www.w3schools.com/xml/note.xml
   // http://www.omdbapi.com/?t=Man&y=&plot=short&r=xml
   var data = '';
-  http.get('http://www.omdbapi.com/?t=Man&y=&plot=short&r=xml', function(response) {
+  http.get('http://www.w3schools.com/xml/note.xml', function(response) {
     if (response.statusCode >= 200 && response.statusCode < 400) {
       response.on('data', function(datablock) { 
         data += datablock.toString(); 
