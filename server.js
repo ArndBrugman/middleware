@@ -10,12 +10,13 @@ app.get('/', function (req, res) {
   // http://www.w3schools.com/xml/note.xml
   // http://www.omdbapi.com/?t=Man&y=&plot=short&r=xml
   var data = '';
-  http.get('http://www.w3schools.com/xml/note.xml', function(response) {
+  http.get('http://www.omdbapi.com/?t=Man&y=&plot=short&r=xml', function(response) {
     if (response.statusCode >= 200 && response.statusCode < 400) {
       response.on('data', function(datablock) { 
+        console.log('datablock ' + datablock);
         data += datablock.toString(); 
       });
-      res.on('end', function() {
+      response.on('end', function() {
         console.log('data from request', data);
         parser.parseString(data, function(err, result) {
           res.send(result);
