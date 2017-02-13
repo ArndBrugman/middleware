@@ -19,7 +19,7 @@ app.get('/', function (req, res) {
       response.on('end', function() {
         console.log('data from request', data);
         parser.parseString(data, function(err, result) {
-          res.send(result);
+          res.json(result);
           console.log('result as json', result);
         });
       });
