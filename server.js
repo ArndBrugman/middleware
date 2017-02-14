@@ -13,14 +13,15 @@ app.get('/', function (req, res) {
   http.get('http://www.omdbapi.com/?t=Man&y=&plot=short&r=xml', function(response) {
     if (response.statusCode >= 200 && response.statusCode < 400) {
       response.on('data', function(datablock) { 
-        console.log('datablock ' + datablock);
+        console.log('on data: datablock received');
         data += datablock.toString(); 
       });
       response.on('end', function() {
-        console.log('data from request', data);
+        console.log('on end: data complete');
         parser.parseString(data, function(err, result) {
+          res.setHeader('Content-Type', 'application/json');
           res.json(result);
-          console.log('result as json', result);
+          console.log('json returned');
         });
       });
     }
@@ -28,5 +29,5 @@ app.get('/', function (req, res) {
 })
 
 app.listen(app.get('port'), function () {
-  console.log('Example app+ listening on port ' + app.get('port'))
+  console.log('Middleware server listening on port ' + app.get('port'))
 })
